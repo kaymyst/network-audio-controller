@@ -73,8 +73,7 @@ class DanteDevice:
         try:
             sock.send(binary_str)
         except Exception as e:
-            print(e)
-            traceback.print_exc()
+            logger.exception("dante_send_command failed sending %s to %s", command, service_type or port)
 
     async def dante_command(self, command, service_type=None, port=None):
         response = None
@@ -98,7 +97,9 @@ class DanteDevice:
             sock.send(binary_str)
             response = sock.recvfrom(2048)[0]
         except TimeoutError:
-            pass
+            logger.debug("dante_command timeout sending command %s to %s", command, service_type or port)
+        except Exception as e:
+            logger.exception("dante_command error sending %s to %s", command, service_type or port)
 
         return response
 
@@ -189,10 +190,16 @@ class DanteDevice:
                     and "type" in x[1]
                     and x[1]["type"] == service_type,
                     self.services.items(),
-                )
-            )[1]
+                ),
+                None
+            )
+            if service:
+                service = service[1]
+            else:
+                logger.debug("Service type %s not found in device %s. Available services: %s", 
+                           service_type, self._server_name, list(self.services.keys()))
         except Exception as e:
-            logger.warning(f"Failed to get a service by type. {e}")
+            logger.warning("Failed to get a service by type %s: %s", service_type, e, exc_info=True)
             self.error = e
 
         return service
@@ -289,6 +296,7 @@ class DanteDevice:
                     self.name = response[10:-1].decode("ascii")
                 else:
                     logger.warning("Failed to get Dante device name")
+                    logger.debug("device=%s ipv4=%s sockets=%s", self._server_name, getattr(self, "_ipv4", None), list(self.sockets.keys()))
 
             # get reported rx/tx channel counts
             if self._rx_count is None or self._tx_count is None:
@@ -302,6 +310,7 @@ class DanteDevice:
                     )
                 else:
                     logger.warning("Failed to get Dante channel counts")
+                    logger.debug("device=%s ipv4=%s sockets=%s", self._server_name, getattr(self, "_ipv4", None), list(self.sockets.keys()))
 
             if not self.tx_channels and self.tx_count:
                 await self.get_tx_channels()

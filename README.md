@@ -13,12 +13,13 @@ For more information, check out the [gearspace discussion](https://gearspace.com
 
 
 ### Features
+
 - kaymyst: Windows compatible and fixes timeout issues.
 - you will need to install [python](https://www.python.org/downloads/windows/) and [VS build tools with c++](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 - to create an exe do 
 ```bash
 pip install pyinstaller
-pyinstaller --onedir --name netaudio netaudio/__main__.py
+pyinstaller --noconfirm --onedir --name netaudio netaudio/__main__.py
 ```
 
 #### Current
