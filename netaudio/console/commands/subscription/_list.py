@@ -56,7 +56,7 @@ class SubscriptionListCommand(Command):
                 redis_client = Redis(
                     db=redis_db,
                     decode_responses=False,
-                    socket_timeout=0.1,
+                    socket_timeout=5,
                     unix_socket_path=redis_socket_path,
                 )
             elif os.environ.get("REDIS_PORT") or os.environ.get("REDIS_HOST"):
@@ -64,7 +64,7 @@ class SubscriptionListCommand(Command):
                     db=redis_db,
                     decode_responses=False,
                     host=redis_host,
-                    socket_timeout=0.1,
+                    socket_timeout=5,
                     port=redis_port,
                 )
             if redis_client:

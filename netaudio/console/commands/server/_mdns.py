@@ -107,7 +107,7 @@ try:
         redis_client = Redis(
             db=redis_db,
             decode_responses=False,
-            socket_timeout=0.1,
+            socket_timeout=5,
             unix_socket_path=redis_socket_path,
         )
     elif os.environ.get("REDIS_PORT") or os.environ.get("REDIS_HOST"):
@@ -115,7 +115,7 @@ try:
             db=redis_db,
             decode_responses=False,
             host=redis_host,
-            socket_timeout=0.1,
+            socket_timeout=5,
             port=redis_port,
         )
     if redis_client:
@@ -1189,7 +1189,7 @@ def parse_dante_service_change(message):
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             sock.bind(("", 0))
-            sock.settimeout(0.01)
+            sock.settimeout(1)
             sock.connect((ipv4, port))
             sockets[server_name][port] = sock
 

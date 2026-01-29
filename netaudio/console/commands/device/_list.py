@@ -95,7 +95,7 @@ class DeviceListCommand(Command):
                 decode_responses=True,
                 host=redis_host,
                 port=redis_port,
-                socket_timeout=0.1,
+                socket_timeout=5,
             )
 
             redis_client.ping()

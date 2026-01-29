@@ -273,7 +273,7 @@ class DanteDevice:
             for port in PORTS:
                 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 sock.bind(("", 0))
-                sock.settimeout(0.01)
+                sock.settimeout(1)
                 sock.connect((str(self.ipv4), port))
                 self.sockets[port] = sock
         except Exception as e:
