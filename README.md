@@ -11,11 +11,15 @@ scripts.
 
 For more information, check out the [gearspace discussion](https://gearspace.com/board/music-computers/1221989-dante-routing-without-dante-controller-possible.html).
 
-### Demo
-
-<p align="center"><img src="https://github.com/chris-ritsen/network-audio-controller/blob/master/demo/demo.gif?raw=true" alt="netctl usage demo" title="netctl usage demo"/></p>
 
 ### Features
+- kaymyst: Windows compatible and fixes timeout issues.
+- you will need to install [python](https://www.python.org/downloads/windows/) and [VS build tools with c++](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+- to create an exe do 
+```bash
+pip install pyinstaller
+pyinstaller --onedir --name netaudio netaudio/__main__.py
+```
 
 #### Current
 
