@@ -22,7 +22,9 @@ pip install pyinstaller
 pyinstaller --noconfirm --onedir --name netaudio netaudio/__main__.py
 ```
 to set crosspoints from a Dante controller xml file do the following
-.\netaudio.exe subscription fromxml --xmlfile dante.xml
+```bash
+netaudio.exe subscription fromxml --xmlfile dante.xml
+```
 
 #### Current
 
