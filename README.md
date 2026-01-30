@@ -14,13 +14,15 @@ For more information, check out the [gearspace discussion](https://gearspace.com
 
 ### Features
 
-- kaymyst: Windows compatible and fixes timeout issues.
+- kaymyst: Windows compatible and fixes timeout issues, also allows setting subscription from a dante controller xml file
 - you will need to install [python](https://www.python.org/downloads/windows/) and [VS build tools with c++](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 - to create an exe do 
 ```bash
 pip install pyinstaller
 pyinstaller --noconfirm --onedir --name netaudio netaudio/__main__.py
 ```
+to set crosspoints from a Dante controller xml file do the following
+.\netaudio.exe subscription fromxml --xmlfile dante.xml
 
 #### Current
 
