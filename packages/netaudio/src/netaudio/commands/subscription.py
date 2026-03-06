@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import xml.etree.ElementTree as ET
+from pathlib import Path
 from typing import Optional
 
 import typer
@@ -234,5 +236,87 @@ def bulk(
                     typer.echo(f"{rx_name}@{rx_device.name} <- {tx_name}@{tx_device.name}")
                 except Exception as e:
                     typer.echo(f"FAILED {rx_name}@{rx_device.name} <- {tx_name}@{tx_device.name}: {e}", err=True)
+
+    asyncio.run(_run())
+
+
+@app.command()
+def fromxml(
+    xmlfile: Path = typer.Option(..., "--xmlfile", help="Path to XML preset file exported from Dante Controller."),
+):
+    """Add subscriptions from a Dante Controller XML preset file."""
+
+    commands = DanteDeviceCommands()
+
+    async def _run():
+        try:
+            tree = ET.parse(xmlfile)
+            root = tree.getroot()
+        except Exception as e:
+            typer.echo(f"Error: failed to parse XML file: {e}", err=True)
+            raise typer.Exit(code=ExitCode.ERROR)
+
+        subscriptions_to_add = []
+
+        for device_elem in root.findall("device"):
+            device_name = device_elem.findtext("name")
+            if not device_name:
+                continue
+
+            for rxchannel_elem in device_elem.findall("rxchannel"):
+                rx_channel_name = rxchannel_elem.findtext("name")
+                subscribed_device = rxchannel_elem.findtext("subscribed_device")
+                subscribed_channel = rxchannel_elem.findtext("subscribed_channel")
+
+                if not subscribed_device or not subscribed_channel:
+                    continue
+
+                subscriptions_to_add.append({
+                    "rx_device_name": device_name,
+                    "rx_channel_name": rx_channel_name,
+                    "tx_device_name": subscribed_device,
+                    "tx_channel_name": subscribed_channel,
+                })
+
+        if not subscriptions_to_add:
+            typer.echo("No subscriptions found in XML file.")
+            return
+
+        typer.echo(f"Found {len(subscriptions_to_add)} subscription(s) in XML.")
+
+        async with _command_context() as (devices, send):
+            for sub in subscriptions_to_add:
+                rx_device = find_device(devices, sub["rx_device_name"])
+                if rx_device is None:
+                    typer.echo(f"Warning: RX device '{sub['rx_device_name']}' not found, skipping.", err=True)
+                    continue
+
+                tx_device = find_device(devices, sub["tx_device_name"])
+                if tx_device is None:
+                    typer.echo(f"Warning: TX device '{sub['tx_device_name']}' not found, skipping.", err=True)
+                    continue
+
+                rx_channel = find_channel(rx_device, sub["rx_channel_name"], "rx")
+                if rx_channel is None:
+                    typer.echo(f"Warning: RX channel '{sub['rx_channel_name']}' not found on {rx_device.name}, skipping.", err=True)
+                    continue
+
+                tx_channel = find_channel(tx_device, sub["tx_channel_name"], "tx")
+                if tx_channel is None:
+                    typer.echo(f"Warning: TX channel '{sub['tx_channel_name']}' not found on {tx_device.name}, skipping.", err=True)
+                    continue
+
+                try:
+                    tx_channel_name = tx_channel.friendly_name or tx_channel.name
+                    packet, _ = commands.command_add_subscription(
+                        rx_channel.number, tx_channel_name, tx_device.name
+                    )
+                    arc_port = _get_arc_port(rx_device)
+                    await send(packet, rx_device.ipv4, arc_port)
+                    typer.echo(f"{rx_channel.name}@{rx_device.name} <- {tx_channel.name}@{tx_device.name}")
+                except Exception as e:
+                    typer.echo(f"FAILED {sub['rx_channel_name']}@{sub['rx_device_name']} <- {sub['tx_channel_name']}@{sub['tx_device_name']}: {e}", err=True)
+
+        typer.echo("Subscriptions applied.")
 
     asyncio.run(_run())

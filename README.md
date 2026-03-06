@@ -16,7 +16,7 @@ For more information, check out the [gearspace discussion](https://gearspace.com
 #### Current
 
 - AVIO input/output gain control
-- Add/remove subscriptions
+- Add/remove subscriptions (including bulk import from Dante Controller XML presets)
 - CLI
 - Display active subscriptions, Rx and Tx channels, devices names and
   addresses, subscription status

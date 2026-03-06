@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<preset version="3.0.0">
+    <name>dante</name>
+    <description>Dante Controller preset</description>
+    <device>
+        <captureInfo>
+            <device_name/>
+            <interface_ipv4_addresses/>
+            <device_samplerate/>
+            <device_encoding/>
+            <device_unicast_latency/>
+            <rtp/>
+            <clock/>
+            <clock_priority/>
+            <txchannel_names/>
+            <txflows/>
+            <rxchannel_names/>
+            <rxchannel_subscriptions/>
+            <rxflows/>
+        </captureInfo>
+        <name>AVIOUSB-536bd3</name>
+        <default_name>AVIOUSB-536bd3</default_name>
+        <instance_id>
+            <device_id>001DC1FFFE536BD3</device_id>
+            <process_id>0</process_id>
+        </instance_id>
+        <manufacturer_id>417564696E617465</manufacturer_id>
+        <manufacturer_name>Audinate</manufacturer_name>
+        <model_id>44494F5553420000</model_id>
+        <model_name>AVIO-USB</model_name>
+        <model_version>1.2.3</model_version>
+        <device_type>44494F5553420000</device_type>
+        <device_type_string>DIOUSB</device_type_string>
+        <friendly_name>AVIOUSB-536bd3</friendly_name>
+        <preferred_master value="true"/>
+        <samplerate>48000</samplerate>
+        <encoding>24</encoding>
+        <unicast_latency>1000</unicast_latency>
+        <interface network="0">
+            <ipv4_address mode="dynamic"/>
+        </interface>
+        <txflow danteId="2" mediaType="audio">
+            <slot channelId="1"/>
+        </txflow>
+        <txchannel danteId="1" mediaType="audio">
+            <label>Left</label>
+        </txchannel>
+        <txchannel danteId="2" mediaType="audio">
+            <label>Right</label>
+        </txchannel>
+        <rxchannel danteId="1" mediaType="audio">
+            <name>Left</name>
+            <subscribed_channel>Dante Output Out 2</subscribed_channel>
+            <subscribed_device>DICENTIS-DICENTIS-886553</subscribed_device>
+        </rxchannel>
+        <rxchannel danteId="2" mediaType="audio">
+            <name>Right</name>
+        </rxchannel>
+        <rtp>
+            <interop_mode>none</interop_mode>
+            <aes67_multicast_address_prefix>4014276608</aes67_multicast_address_prefix>
+        </rtp>
+        <clock>
+            <subdomain_name>_DFLT</subdomain_name>
+            <v1_unicast_delay_requests>false</v1_unicast_delay_requests>
+            <v2_unicast_delay_requests>false</v2_unicast_delay_requests>
+            <v1_enabled>true</v1_enabled>
+            <v2_enabled>false</v2_enabled>
+        </clock>
+        <clock_priority>
+            <preferred>true</preferred>
+            <follower_only>false</follower_only>
+        </clock_priority>
+    </device>
+    <device>
+        <captureInfo>
+            <device_name/>
+            <txchannel_names/>
+            <txflows/>
+            <rxchannel_names/>
+            <rxchannel_subscriptions/>
+            <rxflows/>
+        </captureInfo>
+        <name>DICENTIS-DICENTIS-886553</name>
+        <default_name>DICENTIS-886553</default_name>
+        <instance_id>
+            <device_id>84A93E8865530000</device_id>
+            <process_id>8648</process_id>
+        </instance_id>
+        <manufacturer_id>417564696E617465</manufacturer_id>
+        <manufacturer_name>Audinate Pty Ltd</manufacturer_name>
+        <model_id>44766457696E0000</model_id>
+        <model_name>Dante Virtual Device</model_name>
+        <model_version>4.0.4</model_version>
+        <model_version_string>4.0.4.1</model_version_string>
+        <device_type>44766457696E0000</device_type>
+        <device_type_string>Dante Virtual Device</device_type_string>
+        <friendly_name>DICENTIS-DICENTIS-886553</friendly_name>
+        <txflow danteId="1" mediaType="audio">
+            <slot channelId="1"/>
+        </txflow>
+        <txflow danteId="2" mediaType="audio">
+            <slot channelId="2"/>
+        </txflow>
+        <txflow danteId="3" mediaType="audio">
+            <slot channelId="3"/>
+        </txflow>
+        <txflow danteId="4" mediaType="audio">
+            <slot channelId="4"/>
+        </txflow>
+        <txflow danteId="5" mediaType="audio">
+            <slot channelId="5"/>
+        </txflow>
+        <txflow danteId="6" mediaType="audio">
+            <slot channelId="6"/>
+        </txflow>
+        <txflow danteId="7" mediaType="audio">
+            <slot channelId="7"/>
+        </txflow>
+        <txflow danteId="8" mediaType="audio">
+            <slot channelId="8"/>
+        </txflow>
+        <txflow danteId="9" mediaType="audio">
+            <slot channelId="9"/>
+        </txflow>
+        <txflow danteId="10" mediaType="audio">
+            <slot channelId="10"/>
+        </txflow>
+        <txflow danteId="11" mediaType="audio">
+            <slot channelId="11"/>
+        </txflow>
+        <txflow danteId="12" mediaType="audio">
+            <slot channelId="12"/>
+        </txflow>
+        <txflow danteId="13" mediaType="audio">
+            <slot channelId="13"/>
+        </txflow>
+        <txflow danteId="14" mediaType="audio">
+            <slot channelId="14"/>
+        </txflow>
+        <txflow danteId="15" mediaType="audio">
+            <slot channelId="15"/>
+        </txflow>
+        <txflow danteId="16" mediaType="audio">
+            <slot channelId="16"/>
+        </txflow>
+        <txflow danteId="17" mediaType="audio">
+            <slot channelId="17"/>
+        </txflow>
+        <txflow danteId="18" mediaType="audio">
+            <slot channelId="18"/>
+        </txflow>
+        <txflow danteId="19" mediaType="audio">
+            <slot channelId="19"/>
+        </txflow>
+        <txflow danteId="20" mediaType="audio">
+            <slot channelId="20"/>
+        </txflow>
+        <txflow danteId="21" mediaType="audio">
+            <slot channelId="21"/>
+        </txflow>
+        <txflow danteId="22" mediaType="audio">
+            <slot channelId="22"/>
+        </txflow>
+        <txflow danteId="23" mediaType="audio">
+            <slot channelId="23"/>
+        </txflow>
+        <txflow danteId="24" mediaType="audio">
+            <slot channelId="24"/>
+        </txflow>
+        <txflow danteId="25" mediaType="audio">
+            <slot channelId="25"/>
+        </txflow>
+        <txflow danteId="26" mediaType="audio">
+            <slot channelId="26"/>
+        </txflow>
+        <txflow danteId="27" mediaType="audio">
+            <slot channelId="27"/>
+        </txflow>
+        <txflow danteId="28" mediaType="audio">
+            <slot channelId="28"/>
+        </txflow>
+        <txflow danteId="29" mediaType="audio">
+            <slot channelId="29"/>
+        </txflow>
+        <txflow danteId="30" mediaType="audio">
+            <slot channelId="30"/>
+        </txflow>
+        <txflow danteId="31" mediaType="audio">
+            <slot channelId="31"/>
+        </txflow>
+        <txflow danteId="32" mediaType="audio">
+            <slot channelId="32"/>
+        </txflow>
+        <txflow danteId="33" mediaType="audio">
+            <slot channelId="33"/>
+        </txflow>
+        <txflow danteId="34" mediaType="audio">
+            <slot channelId="34"/>
+        </txflow>
+        <txflow danteId="35" mediaType="audio">
+            <slot channelId="35"/>
+        </txflow>
+        <txflow danteId="36" mediaType="audio">
+            <slot channelId="36"/>
+        </txflow>
+        <txflow danteId="37" mediaType="audio">
+            <slot channelId="37"/>
+        </txflow>
+        <txflow danteId="38" mediaType="audio">
+            <slot channelId="38"/>
+        </txflow>
+        <txflow danteId="39" mediaType="audio">
+            <slot channelId="39"/>
+        </txflow>
+        <txflow danteId="40" mediaType="audio">
+            <slot channelId="40"/>
+        </txflow>
+        <txflow danteId="41" mediaType="audio">
+            <slot channelId="41"/>
+        </txflow>
+        <txflow danteId="42" mediaType="audio">
+            <slot channelId="42"/>
+        </txflow>
+        <txflow danteId="43" mediaType="audio">
+            <slot channelId="43"/>
+        </txflow>
+        <txflow danteId="44" mediaType="audio">
+            <slot channelId="44"/>
+        </txflow>
+        <txflow danteId="45" mediaType="audio">
+            <slot channelId="45"/>
+        </txflow>
+        <txflow danteId="46" mediaType="audio">
+            <slot channelId="46"/>
+        </txflow>
+        <txflow danteId="47" mediaType="audio">
+            <slot channelId="47"/>
+        </txflow>
+        <txflow danteId="48" mediaType="audio">
+            <slot channelId="48"/>
+        </txflow>
+        <txflow danteId="49" mediaType="audio">
+            <slot channelId="49"/>
+        </txflow>
+        <txflow danteId="50" mediaType="audio">
+            <slot channelId="50"/>
+        </txflow>
+        <txflow danteId="51" mediaType="audio">
+            <slot channelId="51"/>
+        </txflow>
+        <txflow danteId="52" mediaType="audio">
+            <slot channelId="52"/>
+        </txflow>
+        <txflow danteId="53" mediaType="audio">
+            <slot channelId="53"/>
+        </txflow>
+        <txflow danteId="54" mediaType="audio">
+            <slot channelId="54"/>
+        </txflow>
+        <txflow danteId="55" mediaType="audio">
+            <slot channelId="55"/>
+        </txflow>
+        <txflow danteId="56" mediaType="audio">
+            <slot channelId="56"/>
+        </txflow>
+        <txflow danteId="57" mediaType="audio">
+            <slot channelId="57"/>
+        </txflow>
+        <txflow danteId="58" mediaType="audio">
+            <slot channelId="58"/>
+        </txflow>
+        <txflow danteId="59" mediaType="audio">
+            <slot channelId="59"/>
+        </txflow>
+        <txflow danteId="60" mediaType="audio">
+            <slot channelId="60"/>
+        </txflow>
+        <txflow danteId="61" mediaType="audio">
+            <slot channelId="61"/>
+        </txflow>
+        <txflow danteId="62" mediaType="audio">
+            <slot channelId="62"/>
+        </txflow>
+        <txflow danteId="63" mediaType="audio">
+            <slot channelId="63"/>
+        </txflow>
+        <txflow danteId="64" mediaType="audio">
+            <slot channelId="64"/>
+        </txflow>
+        <txflow danteId="65" mediaType="audio">
+            <slot channelId="65"/>
+        </txflow>
+        <txflow danteId="66" mediaType="audio">
+            <slot channelId="66"/>
+        </txflow>
+        <txflow danteId="67" mediaType="audio">
+            <slot channelId="67"/>
+        </txflow>
+        <txflow danteId="68" mediaType="audio">
+            <slot channelId="68"/>
+        </txflow>
+        <txflow danteId="69" mediaType="audio">
+            <slot channelId="69"/>
+        </txflow>
+        <txflow danteId="70" mediaType="audio">
+            <slot channelId="70"/>
+        </txflow>
+        <txflow danteId="71" mediaType="audio">
+            <slot channelId="71"/>
+        </txflow>
+        <txflow danteId="72" mediaType="audio">
+            <slot channelId="72"/>
+        </txflow>
+        <txflow danteId="73" mediaType="audio">
+            <slot channelId="73"/>
+        </txflow>
+        <txflow danteId="74" mediaType="audio">
+            <slot channelId="74"/>
+        </txflow>
+        <txflow danteId="75" mediaType="audio">
+            <slot channelId="75"/>
+        </txflow>
+        <txflow danteId="76" mediaType="audio">
+            <slot channelId="76"/>
+        </txflow>
+        <txflow danteId="77" mediaType="audio">
+            <slot channelId="77"/>
+        </txflow>
+        <txflow danteId="78" mediaType="audio">
+            <slot channelId="78"/>
+        </txflow>
+        <txflow danteId="79" mediaType="audio">
+            <slot channelId="79"/>
+        </txflow>
+        <txflow danteId="80" mediaType="audio">
+            <slot channelId="80"/>
+        </txflow>
+        <txflow danteId="81" mediaType="audio">
+            <slot channelId="81"/>
+        </txflow>
+        <txflow danteId="82" mediaType="audio">
+            <slot channelId="82"/>
+        </txflow>
+        <txflow danteId="83" mediaType="audio">
+            <slot channelId="83"/>
+        </txflow>
+        <txflow danteId="84" mediaType="audio">
+            <slot channelId="84"/>
+        </txflow>
+        <txflow danteId="85" mediaType="audio">
+            <slot channelId="85"/>
+        </txflow>
+        <txflow danteId="86" mediaType="audio">
+            <slot channelId="86"/>
+        </txflow>
+        <txflow danteId="87" mediaType="audio">
+            <slot channelId="87"/>
+        </txflow>
+        <txflow danteId="88" mediaType="audio">
+            <slot channelId="88"/>
+        </txflow>
+        <txflow danteId="89" mediaType="audio">
+            <slot channelId="89"/>
+        </txflow>
+        <txflow danteId="90" mediaType="audio">
+            <slot channelId="90"/>
+        </txflow>
+        <txflow danteId="91" mediaType="audio">
+            <slot channelId="91"/>
+        </txflow>
+        <txflow danteId="92" mediaType="audio">
+            <slot channelId="92"/>
+        </txflow>
+        <txflow danteId="93" mediaType="audio">
+            <slot channelId="93"/>
+        </txflow>
+        <txflow danteId="94" mediaType="audio">
+            <slot channelId="94"/>
+        </txflow>
+        <txflow danteId="95" mediaType="audio">
+            <slot channelId="95"/>
+        </txflow>
+        <txflow danteId="96" mediaType="audio">
+            <slot channelId="96"/>
+        </txflow>
+        <txflow danteId="97" mediaType="audio">
+            <slot channelId="97"/>
+        </txflow>
+        <txflow danteId="98" mediaType="audio">
+            <slot channelId="98"/>
+        </txflow>
+        <txflow danteId="99" mediaType="audio">
+            <slot channelId="99"/>
+        </txflow>
+        <txflow danteId="100" mediaType="audio">
+            <slot channelId="100"/>
+        </txflow>
+        <txflow danteId="101" mediaType="audio">
+            <slot channelId="101"/>
+        </txflow>
+        <txflow danteId="102" mediaType="audio">
+            <slot channelId="102"/>
+        </txflow>
+        <txchannel danteId="1" mediaType="audio">
+            <label>Dante Output Out 1</label>
+        </txchannel>
+        <txchannel danteId="2" mediaType="audio">
+            <label>Dante Output Out 2</label>
+        </txchannel>
+        <txchannel danteId="3" mediaType="audio">
+            <label>Language 1</label>
+        </txchannel>
+        <txchannel danteId="4" mediaType="audio">
+            <label>Language 2</label>
+        </txchannel>
+        <txchannel danteId="5" mediaType="audio">
+            <label>Language 3</label>
+        </txchannel>
+        <txchannel danteId="6" mediaType="audio">
+            <label>Language 4</label>
+        </txchannel>
+        <txchannel danteId="7" mediaType="audio">
+            <label>Language 5</label>
+        </txchannel>
+        <txchannel danteId="8" mediaType="audio">
+            <label>Language 6</label>
+        </txchannel>
+        <txchannel danteId="9" mediaType="audio">
+            <label>Language 7</label>
+        </txchannel>
+        <txchannel danteId="10" mediaType="audio">
+            <label>Language 8</label>
+        </txchannel>
+        <txchannel danteId="11" mediaType="audio">
+            <label>Language 9</label>
+        </txchannel>
+        <txchannel danteId="12" mediaType="audio">
+            <label>Language 10</label>
+        </txchannel>
+        <txchannel danteId="13" mediaType="audio">
+            <label>Language 11</label>
+        </txchannel>
+        <txchannel danteId="14" mediaType="audio">
+            <label>Language 12</label>
+        </txchannel>
+        <txchannel danteId="15" mediaType="audio">
+            <label>Language 13</label>
+        </txchannel>
+        <txchannel danteId="16" mediaType="audio">
+            <label>Language 14</label>
+        </txchannel>
+        <txchannel danteId="17" mediaType="audio">
+            <label>Language 15</label>
+        </txchannel>
+        <txchannel danteId="18" mediaType="audio">
+            <label>Language 16</label>
+        </txchannel>
+        <txchannel danteId="19" mediaType="audio">
+            <label>Language 17</label>
+        </txchannel>
+        <txchannel danteId="20" mediaType="audio">
+            <label>Language 18</label>
+        </txchannel>
+        <txchannel danteId="21" mediaType="audio">
+            <label>Language 19</label>
+        </txchannel>
+        <txchannel danteId="22" mediaType="audio">
+            <label>Language 20</label>
+        </txchannel>
+        <txchannel danteId="23" mediaType="audio">
+            <label>Language 21</label>
+        </txchannel>
+        <txchannel danteId="24" mediaType="audio">
+            <label>Language 22</label>
+        </txchannel>
+        <txchannel danteId="25" mediaType="audio">
+            <label>Language 23</label>
+        </txchannel>
+        <txchannel danteId="26" mediaType="audio">
+            <label>Language 24</label>
+        </txchannel>
+        <txchannel danteId="27" mediaType="audio">
+            <label>Language 25</label>
+        </txchannel>
+        <txchannel danteId="28" mediaType="audio">
+            <label>Language 26</label>
+        </txchannel>
+        <txchannel danteId="29" mediaType="audio">
+            <label>Language 27</label>
+        </txchannel>
+        <txchannel danteId="30" mediaType="audio">
+            <label>Language 28</label>
+        </txchannel>
+        <txchannel danteId="31" mediaType="audio">
+            <label>Language 29</label>
+        </txchannel>
+        <txchannel danteId="32" mediaType="audio">
+            <label>Language 30</label>
+        </txchannel>
+        <txchannel danteId="33" mediaType="audio">
+            <label>Language 31</label>
+        </txchannel>
+        <txchannel danteId="34" mediaType="audio">
+            <label>Language 32</label>
+        </txchannel>
+        <txchannel danteId="35" mediaType="audio">
+            <label>Language 33</label>
+        </txchannel>
+        <txchannel danteId="36" mediaType="audio">
+            <label>Language 34</label>
+        </txchannel>
+        <txchannel danteId="37" mediaType="audio">
+            <label>Language 35</label>
+        </txchannel>
+        <txchannel danteId="38" mediaType="audio">
+            <label>Language 36</label>
+        </txchannel>
+        <txchannel danteId="39" mediaType="audio">
+            <label>Language 37</label>
+        </txchannel>
+        <txchannel danteId="40" mediaType="audio">
+            <label>Language 38</label>
+        </txchannel>
+        <txchannel danteId="41" mediaType="audio">
+            <label>Language 39</label>
+        </txchannel>
+        <txchannel danteId="42" mediaType="audio">
+            <label>Language 40</label>
+        </txchannel>
+        <txchannel danteId="43" mediaType="audio">
+            <label>Language 41</label>
+        </txchannel>
+        <txchannel danteId="44" mediaType="audio">
+            <label>Language 42</label>
+        </txchannel>
+        <txchannel danteId="45" mediaType="audio">
+            <label>Language 43</label>
+        </txchannel>
+        <txchannel danteId="46" mediaType="audio">
+            <label>Language 44</label>
+        </txchannel>
+        <txchannel danteId="47" mediaType="audio">
+            <label>Language 45</label>
+        </txchannel>
+        <txchannel danteId="48" mediaType="audio">
+            <label>Language 46</label>
+        </txchannel>
+        <txchannel danteId="49" mediaType="audio">
+            <label>Language 47</label>
+        </txchannel>
+        <txchannel danteId="50" mediaType="audio">
+            <label>Language 48</label>
+        </txchannel>
+        <txchannel danteId="51" mediaType="audio">
+            <label>Language 49</label>
+        </txchannel>
+        <txchannel danteId="52" mediaType="audio">
+            <label>Language 50</label>
+        </txchannel>
+        <txchannel danteId="53" mediaType="audio">
+            <label>Language 51</label>
+        </txchannel>
+        <txchannel danteId="54" mediaType="audio">
+            <label>Language 52</label>
+        </txchannel>
+        <txchannel danteId="55" mediaType="audio">
+            <label>Language 53</label>
+        </txchannel>
+        <txchannel danteId="56" mediaType="audio">
+            <label>Language 54</label>
+        </txchannel>
+        <txchannel danteId="57" mediaType="audio">
+            <label>Language 55</label>
+        </txchannel>
+        <txchannel danteId="58" mediaType="audio">
+            <label>Language 56</label>
+        </txchannel>
+        <txchannel danteId="59" mediaType="audio">
+            <label>Language 57</label>
+        </txchannel>
+        <txchannel danteId="60" mediaType="audio">
+            <label>Language 58</label>
+        </txchannel>
+        <txchannel danteId="61" mediaType="audio">
+            <label>Language 59</label>
+        </txchannel>
+        <txchannel danteId="62" mediaType="audio">
+            <label>Language 60</label>
+        </txchannel>
+        <txchannel danteId="63" mediaType="audio">
+            <label>Language 61</label>
+        </txchannel>
+        <txchannel danteId="64" mediaType="audio">
+            <label>Language 62</label>
+        </txchannel>
+        <txchannel danteId="65" mediaType="audio">
+            <label>Language 63</label>
+        </txchannel>
+        <txchannel danteId="66" mediaType="audio">
+            <label>Language 64</label>
+        </txchannel>
+        <txchannel danteId="67" mediaType="audio">
+            <label>Language 65</label>
+        </txchannel>
+        <txchannel danteId="68" mediaType="audio">
+            <label>Language 66</label>
+        </txchannel>
+        <txchannel danteId="69" mediaType="audio">
+            <label>Language 67</label>
+        </txchannel>
+        <txchannel danteId="70" mediaType="audio">
+            <label>Language 68</label>
+        </txchannel>
+        <txchannel danteId="71" mediaType="audio">
+            <label>Language 69</label>
+        </txchannel>
+        <txchannel danteId="72" mediaType="audio">
+            <label>Language 70</label>
+        </txchannel>
+        <txchannel danteId="73" mediaType="audio">
+            <label>Language 71</label>
+        </txchannel>
+        <txchannel danteId="74" mediaType="audio">
+            <label>Language 72</label>
+        </txchannel>
+        <txchannel danteId="75" mediaType="audio">
+            <label>Language 73</label>
+        </txchannel>
+        <txchannel danteId="76" mediaType="audio">
+            <label>Language 74</label>
+        </txchannel>
+        <txchannel danteId="77" mediaType="audio">
+            <label>Language 75</label>
+        </txchannel>
+        <txchannel danteId="78" mediaType="audio">
+            <label>Language 76</label>
+        </txchannel>
+        <txchannel danteId="79" mediaType="audio">
+            <label>Language 77</label>
+        </txchannel>
+        <txchannel danteId="80" mediaType="audio">
+            <label>Language 78</label>
+        </txchannel>
+        <txchannel danteId="81" mediaType="audio">
+            <label>Language 79</label>
+        </txchannel>
+        <txchannel danteId="82" mediaType="audio">
+            <label>Language 80</label>
+        </txchannel>
+        <txchannel danteId="83" mediaType="audio">
+            <label>Language 81</label>
+        </txchannel>
+        <txchannel danteId="84" mediaType="audio">
+            <label>Language 82</label>
+        </txchannel>
+        <txchannel danteId="85" mediaType="audio">
+            <label>Language 83</label>
+        </txchannel>
+        <txchannel danteId="86" mediaType="audio">
+            <label>Language 84</label>
+        </txchannel>
+        <txchannel danteId="87" mediaType="audio">
+            <label>Language 85</label>
+        </txchannel>
+        <txchannel danteId="88" mediaType="audio">
+            <label>Language 86</label>
+        </txchannel>
+        <txchannel danteId="89" mediaType="audio">
+            <label>Language 87</label>
+        </txchannel>
+        <txchannel danteId="90" mediaType="audio">
+            <label>Language 88</label>
+        </txchannel>
+        <txchannel danteId="91" mediaType="audio">
+            <label>Language 89</label>
+        </txchannel>
+        <txchannel danteId="92" mediaType="audio">
+            <label>Language 90</label>
+        </txchannel>
+        <txchannel danteId="93" mediaType="audio">
+            <label>Language 91</label>
+        </txchannel>
+        <txchannel danteId="94" mediaType="audio">
+            <label>Language 92</label>
+        </txchannel>
+        <txchannel danteId="95" mediaType="audio">
+            <label>Language 93</label>
+        </txchannel>
+        <txchannel danteId="96" mediaType="audio">
+            <label>Language 94</label>
+        </txchannel>
+        <txchannel danteId="97" mediaType="audio">
+            <label>Language 95</label>
+        </txchannel>
+        <txchannel danteId="98" mediaType="audio">
+            <label>Language 96</label>
+        </txchannel>
+        <txchannel danteId="99" mediaType="audio">
+            <label>Language 97</label>
+        </txchannel>
+        <txchannel danteId="100" mediaType="audio">
+            <label>Language 98</label>
+        </txchannel>
+        <txchannel danteId="101" mediaType="audio">
+            <label>Language 99</label>
+        </txchannel>
+        <txchannel danteId="102" mediaType="audio">
+            <label>Language 100</label>
+        </txchannel>
+        <rxchannel danteId="1" mediaType="audio">
+            <name>Dante Input In 1</name>
+        </rxchannel>
+        <rxchannel danteId="2" mediaType="audio">
+            <name>Dante Input In 2</name>
+            <subscribed_channel>Left</subscribed_channel>
+            <subscribed_device>AVIOUSB-536bd3</subscribed_device>
+        </rxchannel>
+        <rxchannel danteId="3" mediaType="audio">
+            <name>Language 1</name>
+        </rxchannel>
+        <rxchannel danteId="4" mediaType="audio">
+            <name>Language 2</name>
+        </rxchannel>
+        <rxchannel danteId="5" mediaType="audio">
+            <name>Language 3</name>
+        </rxchannel>
+        <rxchannel danteId="6" mediaType="audio">
+            <name>Language 4</name>
+        </rxchannel>
+        <rxchannel danteId="7" mediaType="audio">
+            <name>Language 5</name>
+        </rxchannel>
+        <rxchannel danteId="8" mediaType="audio">
+            <name>Language 6</name>
+        </rxchannel>
+        <rxchannel danteId="9" mediaType="audio">
+            <name>Language 7</name>
+        </rxchannel>
+        <rxchannel danteId="10" mediaType="audio">
+            <name>Language 8</name>
+        </rxchannel>
+        <rxchannel danteId="11" mediaType="audio">
+            <name>Language 9</name>
+        </rxchannel>
+        <rxchannel danteId="12" mediaType="audio">
+            <name>Language 10</name>
+        </rxchannel>
+        <rxchannel danteId="13" mediaType="audio">
+            <name>Language 11</name>
+        </rxchannel>
+        <rxchannel danteId="14" mediaType="audio">
+            <name>Language 12</name>
+        </rxchannel>
+        <rxchannel danteId="15" mediaType="audio">
+            <name>Language 13</name>
+        </rxchannel>
+        <rxchannel danteId="16" mediaType="audio">
+            <name>Language 14</name>
+        </rxchannel>
+        <rxchannel danteId="17" mediaType="audio">
+            <name>Language 15</name>
+        </rxchannel>
+        <rxchannel danteId="18" mediaType="audio">
+            <name>Language 16</name>
+        </rxchannel>
+        <rxchannel danteId="19" mediaType="audio">
+            <name>Language 17</name>
+        </rxchannel>
+        <rxchannel danteId="20" mediaType="audio">
+            <name>Language 18</name>
+        </rxchannel>
+        <rxchannel danteId="21" mediaType="audio">
+            <name>Language 19</name>
+        </rxchannel>
+        <rxchannel danteId="22" mediaType="audio">
+            <name>Language 20</name>
+        </rxchannel>
+        <rxchannel danteId="23" mediaType="audio">
+            <name>Language 21</name>
+        </rxchannel>
+        <rxchannel danteId="24" mediaType="audio">
+            <name>Language 22</name>
+        </rxchannel>
+        <rxchannel danteId="25" mediaType="audio">
+            <name>Language 23</name>
+        </rxchannel>
+        <rxchannel danteId="26" mediaType="audio">
+            <name>Language 24</name>
+        </rxchannel>
+        <rxchannel danteId="27" mediaType="audio">
+            <name>Language 25</name>
+        </rxchannel>
+        <rxchannel danteId="28" mediaType="audio">
+            <name>Language 26</name>
+        </rxchannel>
+        <rxchannel danteId="29" mediaType="audio">
+            <name>Language 27</name>
+        </rxchannel>
+        <rxchannel danteId="30" mediaType="audio">
+            <name>Language 28</name>
+        </rxchannel>
+        <rxchannel danteId="31" mediaType="audio">
+            <name>Language 29</name>
+        </rxchannel>
+        <rxchannel danteId="32" mediaType="audio">
+            <name>Language 30</name>
+        </rxchannel>
+        <rxchannel danteId="33" mediaType="audio">
+            <name>Language 31</name>
+        </rxchannel>
+        <rxchannel danteId="34" mediaType="audio">
+            <name>Language 32</name>
+        </rxchannel>
+        <rxchannel danteId="35" mediaType="audio">
+            <name>Language 33</name>
+        </rxchannel>
+        <rxchannel danteId="36" mediaType="audio">
+            <name>Language 34</name>
+        </rxchannel>
+        <rxchannel danteId="37" mediaType="audio">
+            <name>Language 35</name>
+        </rxchannel>
+        <rxchannel danteId="38" mediaType="audio">
+            <name>Language 36</name>
+        </rxchannel>
+        <rxchannel danteId="39" mediaType="audio">
+            <name>Language 37</name>
+        </rxchannel>
+        <rxchannel danteId="40" mediaType="audio">
+            <name>Language 38</name>
+        </rxchannel>
+        <rxchannel danteId="41" mediaType="audio">
+            <name>Language 39</name>
+        </rxchannel>
+        <rxchannel danteId="42" mediaType="audio">
+            <name>Language 40</name>
+        </rxchannel>
+        <rxchannel danteId="43" mediaType="audio">
+            <name>Language 41</name>
+        </rxchannel>
+        <rxchannel danteId="44" mediaType="audio">
+            <name>Language 42</name>
+        </rxchannel>
+        <rxchannel danteId="45" mediaType="audio">
+            <name>Language 43</name>
+        </rxchannel>
+        <rxchannel danteId="46" mediaType="audio">
+            <name>Language 44</name>
+        </rxchannel>
+        <rxchannel danteId="47" mediaType="audio">
+            <name>Language 45</name>
+        </rxchannel>
+        <rxchannel danteId="48" mediaType="audio">
+            <name>Language 46</name>
+        </rxchannel>
+        <rxchannel danteId="49" mediaType="audio">
+            <name>Language 47</name>
+        </rxchannel>
+        <rxchannel danteId="50" mediaType="audio">
+            <name>Language 48</name>
+        </rxchannel>
+        <rxchannel danteId="51" mediaType="audio">
+            <name>Language 49</name>
+        </rxchannel>
+        <rxchannel danteId="52" mediaType="audio">
+            <name>Language 50</name>
+        </rxchannel>
+        <rxchannel danteId="53" mediaType="audio">
+            <name>Language 51</name>
+        </rxchannel>
+        <rxchannel danteId="54" mediaType="audio">
+            <name>Language 52</name>
+        </rxchannel>
+        <rxchannel danteId="55" mediaType="audio">
+            <name>Language 53</name>
+        </rxchannel>
+        <rxchannel danteId="56" mediaType="audio">
+            <name>Language 54</name>
+        </rxchannel>
+        <rxchannel danteId="57" mediaType="audio">
+            <name>Language 55</name>
+        </rxchannel>
+        <rxchannel danteId="58" mediaType="audio">
+            <name>Language 56</name>
+        </rxchannel>
+        <rxchannel danteId="59" mediaType="audio">
+            <name>Language 57</name>
+        </rxchannel>
+        <rxchannel danteId="60" mediaType="audio">
+            <name>Language 58</name>
+        </rxchannel>
+        <rxchannel danteId="61" mediaType="audio">
+            <name>Language 59</name>
+        </rxchannel>
+        <rxchannel danteId="62" mediaType="audio">
+            <name>Language 60</name>
+        </rxchannel>
+        <rxchannel danteId="63" mediaType="audio">
+            <name>Language 61</name>
+        </rxchannel>
+        <rxchannel danteId="64" mediaType="audio">
+            <name>Language 62</name>
+        </rxchannel>
+        <rxchannel danteId="65" mediaType="audio">
+            <name>Language 63</name>
+        </rxchannel>
+        <rxchannel danteId="66" mediaType="audio">
+            <name>Language 64</name>
+        </rxchannel>
+        <rxchannel danteId="67" mediaType="audio">
+            <name>Language 65</name>
+        </rxchannel>
+        <rxchannel danteId="68" mediaType="audio">
+            <name>Language 66</name>
+        </rxchannel>
+        <rxchannel danteId="69" mediaType="audio">
+            <name>Language 67</name>
+        </rxchannel>
+        <rxchannel danteId="70" mediaType="audio">
+            <name>Language 68</name>
+        </rxchannel>
+        <rxchannel danteId="71" mediaType="audio">
+            <name>Language 69</name>
+        </rxchannel>
+        <rxchannel danteId="72" mediaType="audio">
+            <name>Language 70</name>
+        </rxchannel>
+        <rxchannel danteId="73" mediaType="audio">
+            <name>Language 71</name>
+        </rxchannel>
+        <rxchannel danteId="74" mediaType="audio">
+            <name>Language 72</name>
+        </rxchannel>
+        <rxchannel danteId="75" mediaType="audio">
+            <name>Language 73</name>
+        </rxchannel>
+        <rxchannel danteId="76" mediaType="audio">
+            <name>Language 74</name>
+        </rxchannel>
+        <rxchannel danteId="77" mediaType="audio">
+            <name>Language 75</name>
+        </rxchannel>
+        <rxchannel danteId="78" mediaType="audio">
+            <name>Language 76</name>
+        </rxchannel>
+        <rxchannel danteId="79" mediaType="audio">
+            <name>Language 77</name>
+        </rxchannel>
+        <rxchannel danteId="80" mediaType="audio">
+            <name>Language 78</name>
+        </rxchannel>
+        <rxchannel danteId="81" mediaType="audio">
+            <name>Language 79</name>
+        </rxchannel>
+        <rxchannel danteId="82" mediaType="audio">
+            <name>Language 80</name>
+        </rxchannel>
+        <rxchannel danteId="83" mediaType="audio">
+            <name>Language 81</name>
+        </rxchannel>
+        <rxchannel danteId="84" mediaType="audio">
+            <name>Language 82</name>
+        </rxchannel>
+        <rxchannel danteId="85" mediaType="audio">
+            <name>Language 83</name>
+        </rxchannel>
+        <rxchannel danteId="86" mediaType="audio">
+            <name>Language 84</name>
+        </rxchannel>
+        <rxchannel danteId="87" mediaType="audio">
+            <name>Language 85</name>
+        </rxchannel>
+        <rxchannel danteId="88" mediaType="audio">
+            <name>Language 86</name>
+        </rxchannel>
+        <rxchannel danteId="89" mediaType="audio">
+            <name>Language 87</name>
+        </rxchannel>
+        <rxchannel danteId="90" mediaType="audio">
+            <name>Language 88</name>
+        </rxchannel>
+        <rxchannel danteId="91" mediaType="audio">
+            <name>Language 89</name>
+        </rxchannel>
+        <rxchannel danteId="92" mediaType="audio">
+            <name>Language 90</name>
+        </rxchannel>
+        <rxchannel danteId="93" mediaType="audio">
+            <name>Language 91</name>
+        </rxchannel>
+        <rxchannel danteId="94" mediaType="audio">
+            <name>Language 92</name>
+        </rxchannel>
+        <rxchannel danteId="95" mediaType="audio">
+            <name>Language 93</name>
+        </rxchannel>
+        <rxchannel danteId="96" mediaType="audio">
+            <name>Language 94</name>
+        </rxchannel>
+        <rxchannel danteId="97" mediaType="audio">
+            <name>Language 95</name>
+        </rxchannel>
+        <rxchannel danteId="98" mediaType="audio">
+            <name>Language 96</name>
+        </rxchannel>
+        <rxchannel danteId="99" mediaType="audio">
+            <name>Language 97</name>
+        </rxchannel>
+        <rxchannel danteId="100" mediaType="audio">
+            <name>Language 98</name>
+        </rxchannel>
+        <rxchannel danteId="101" mediaType="audio">
+            <name>Language 99</name>
+        </rxchannel>
+        <rxchannel danteId="102" mediaType="audio">
+            <name>Language 100</name>
+        </rxchannel>
+    </device>
+    <device>
+        <captureInfo>
+            <device_name/>
+            <device_samplerate/>
+            <device_encoding/>
+            <clock/>
+            <txchannel_names/>
+            <txflows/>
+            <rxchannel_names/>
+            <rxchannel_subscriptions/>
+            <rxflows/>
+        </captureInfo>
+        <name>P900-001</name>
+        <default_name>P900-001</default_name>
+        <instance_id>
+            <device_id>A0CEC8FFFEF6376E</device_id>
+            <process_id>0</process_id>
+        </instance_id>
+        <manufacturer_id>417564696E617465</manufacturer_id>
+        <manufacturer_name>Audinate Pty Ltd</manufacturer_name>
+        <model_id>44767357696E0000</model_id>
+        <model_name>Dante Virtual Soundcard</model_name>
+        <model_version>4.5.2</model_version>
+        <model_version_string>4.5.2.3</model_version_string>
+        <device_type>44767357696E0000</device_type>
+        <device_type_string>Dante Virtual Soundcard Windows</device_type_string>
+        <friendly_name>P900-001</friendly_name>
+        <samplerate>48000</samplerate>
+        <encoding>24</encoding>
+        <txflow danteId="16" mediaType="audio">
+            <slot channelId="1"/>
+        </txflow>
+        <txchannel danteId="1" mediaType="audio">
+            <label>01</label>
+        </txchannel>
+        <txchannel danteId="2" mediaType="audio">
+            <label>02</label>
+        </txchannel>
+        <txchannel danteId="3" mediaType="audio">
+            <label>03</label>
+        </txchannel>
+        <txchannel danteId="4" mediaType="audio">
+            <label>04</label>
+        </txchannel>
+        <txchannel danteId="5" mediaType="audio">
+            <label>05</label>
+        </txchannel>
+        <txchannel danteId="6" mediaType="audio">
+            <label>06</label>
+        </txchannel>
+        <txchannel danteId="7" mediaType="audio">
+            <label>07</label>
+        </txchannel>
+        <txchannel danteId="8" mediaType="audio">
+            <label>08</label>
+        </txchannel>
+        <txchannel danteId="9" mediaType="audio">
+            <label>09</label>
+        </txchannel>
+        <txchannel danteId="10" mediaType="audio">
+            <label>10</label>
+        </txchannel>
+        <txchannel danteId="11" mediaType="audio">
+            <label>11</label>
+        </txchannel>
+        <txchannel danteId="12" mediaType="audio">
+            <label>12</label>
+        </txchannel>
+        <txchannel danteId="13" mediaType="audio">
+            <label>13</label>
+        </txchannel>
+        <txchannel danteId="14" mediaType="audio">
+            <label>14</label>
+        </txchannel>
+        <txchannel danteId="15" mediaType="audio">
+            <label>15</label>
+        </txchannel>
+        <txchannel danteId="16" mediaType="audio">
+            <label>16</label>
+        </txchannel>
+        <rxchannel danteId="1" mediaType="audio">
+            <name>01</name>
+        </rxchannel>
+        <rxchannel danteId="2" mediaType="audio">
+            <name>02</name>
+        </rxchannel>
+        <rxchannel danteId="3" mediaType="audio">
+            <name>03</name>
+        </rxchannel>
+        <rxchannel danteId="4" mediaType="audio">
+            <name>04</name>
+        </rxchannel>
+        <rxchannel danteId="5" mediaType="audio">
+            <name>05</name>
+        </rxchannel>
+        <rxchannel danteId="6" mediaType="audio">
+            <name>06</name>
+        </rxchannel>
+        <rxchannel danteId="7" mediaType="audio">
+            <name>07</name>
+        </rxchannel>
+        <rxchannel danteId="8" mediaType="audio">
+            <name>08</name>
+        </rxchannel>
+        <rxchannel danteId="9" mediaType="audio">
+            <name>09</name>
+        </rxchannel>
+        <rxchannel danteId="10" mediaType="audio">
+            <name>10</name>
+        </rxchannel>
+        <rxchannel danteId="11" mediaType="audio">
+            <name>11</name>
+        </rxchannel>
+        <rxchannel danteId="12" mediaType="audio">
+            <name>12</name>
+        </rxchannel>
+        <rxchannel danteId="13" mediaType="audio">
+            <name>13</name>
+        </rxchannel>
+        <rxchannel danteId="14" mediaType="audio">
+            <name>14</name>
+        </rxchannel>
+        <rxchannel danteId="15" mediaType="audio">
+            <name>15</name>
+        </rxchannel>
+        <rxchannel danteId="16" mediaType="audio">
+            <name>16</name>
+        </rxchannel>
+        <clock>
+            <subdomain_name>_DFLT</subdomain_name>
+            <v1_unicast_delay_requests>false</v1_unicast_delay_requests>
+            <v2_unicast_delay_requests>false</v2_unicast_delay_requests>
+            <v1_enabled>true</v1_enabled>
+            <v2_enabled>false</v2_enabled>
+        </clock>
+    </device>
+</preset>
