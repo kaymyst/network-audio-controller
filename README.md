@@ -49,7 +49,15 @@ uv run netaudio
 
 #### Windows build package
 
+```bash
 uv run pyinstaller --noconfirm --onefile --name netaudio packages/netaudio/src/netaudio/__main__.py
+```
+
+or if you want to set the version number and company, use the build.py script
+
+```bash
+uv run python build.py --company "company"
+```
 
 #### Arch Linux
 

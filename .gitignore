@@ -7,3 +7,5 @@ debug.log
 .hypothesis/
 tests/fixtures/provenance/.local/
 /build
+*.spec
+netaudio.spec
