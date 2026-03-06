@@ -24,6 +24,9 @@ uv run ruff format .
 
 # Verbose/debug mode
 uv run netaudio -v
+
+# Build windows package
+uv run pyinstaller --noconfirm --onedir --name netaudio packages/netaudio/src/netaudio/__main__.py
 ```
 
 ## Architecture

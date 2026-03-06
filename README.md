@@ -30,6 +30,7 @@ For more information, check out the [gearspace discussion](https://gearspace.com
 To install from PyPI:
 
 ```bash
+pip install uv
 uv tool install netaudio
 ```
 
@@ -45,6 +46,10 @@ To install from a clone:
 uv sync
 uv run netaudio
 ```
+
+#### Windows build package
+
+uv run pyinstaller --noconfirm --onedir --name netaudio packages/netaudio/src/netaudio/__main__.py
 
 #### Arch Linux
 
