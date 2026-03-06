@@ -29,7 +29,7 @@ uv run netaudio -v
 uv run netaudio subscription fromxml --xmlfile path/to/preset.xml
 
 # Build windows package
-uv run pyinstaller --noconfirm --onedir --name netaudio packages/netaudio/src/netaudio/__main__.py
+uv run pyinstaller --noconfirm --onefile --name netaudio packages/netaudio/src/netaudio/__main__.py
 ```
 
 ## Architecture

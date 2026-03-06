@@ -49,7 +49,7 @@ uv run netaudio
 
 #### Windows build package
 
-uv run pyinstaller --noconfirm --onedir --name netaudio packages/netaudio/src/netaudio/__main__.py
+uv run pyinstaller --noconfirm --onefile --name netaudio packages/netaudio/src/netaudio/__main__.py
 
 #### Arch Linux
 
