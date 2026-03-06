@@ -244,7 +244,13 @@ def bulk(
 def fromxml(
     xmlfile: Path = typer.Option(..., "--xmlfile", help="Path to XML preset file exported from Dante Controller."),
 ):
-    """Add subscriptions from a Dante Controller XML preset file."""
+    """Apply subscriptions from a Dante Controller XML preset file.
+
+    Compares the XML desired state against live subscriptions:
+    - Matching subscriptions are left untouched (no audio cut)
+    - Extra subscriptions not in the XML are removed
+    - Missing subscriptions from the XML are added
+    """
 
     commands = DanteDeviceCommands()
 
@@ -256,7 +262,8 @@ def fromxml(
             typer.echo(f"Error: failed to parse XML file: {e}", err=True)
             raise typer.Exit(code=ExitCode.ERROR)
 
-        subscriptions_to_add = []
+        # Build desired state: dict keyed by (rx_device, rx_channel) -> (tx_device, tx_channel)
+        desired = {}
 
         for device_elem in root.findall("device"):
             device_name = device_elem.findtext("name")
@@ -271,41 +278,94 @@ def fromxml(
                 if not subscribed_device or not subscribed_channel:
                     continue
 
-                subscriptions_to_add.append({
-                    "rx_device_name": device_name,
-                    "rx_channel_name": rx_channel_name,
-                    "tx_device_name": subscribed_device,
-                    "tx_channel_name": subscribed_channel,
-                })
+                desired[(device_name, rx_channel_name)] = (subscribed_device, subscribed_channel)
 
-        if not subscriptions_to_add:
+        if not desired:
             typer.echo("No subscriptions found in XML file.")
             return
 
-        typer.echo(f"Found {len(subscriptions_to_add)} subscription(s) in XML.")
+        typer.echo(f"Found {len(desired)} subscription(s) in XML.")
 
         async with _command_context() as (devices, send):
-            for sub in subscriptions_to_add:
-                rx_device = find_device(devices, sub["rx_device_name"])
+            # Build current state from live subscriptions
+            current = {}
+            for _, device in sort_devices(devices):
+                for sub in device.subscriptions:
+                    if sub.tx_channel_name and sub.tx_device_name:
+                        current[(sub.rx_device_name, sub.rx_channel_name)] = (
+                            sub.tx_device_name,
+                            sub.tx_channel_name,
+                        )
+
+            # Determine what to skip, remove, and add
+            to_skip = []
+            to_remove = []
+            to_add = []
+
+            # Subscriptions in current but not in desired (or different) -> remove
+            for key, cur_tx in current.items():
+                if key in desired and desired[key] == cur_tx:
+                    to_skip.append(key)
+                elif key in desired:
+                    # Same RX channel but different TX source -> remove then re-add
+                    to_remove.append(key)
+                else:
+                    to_remove.append(key)
+
+            # Subscriptions in desired but not currently matching -> add
+            for key in desired:
+                if key not in current or current[key] != desired[key]:
+                    to_add.append(key)
+
+            if to_skip:
+                typer.echo(f"Keeping {len(to_skip)} already-matching subscription(s).")
+            for key in to_skip:
+                tx = desired[key]
+                typer.echo(f"  KEEP {key[1]}@{key[0]} <- {tx[1]}@{tx[0]}")
+
+            # Remove first to free up RX channels before re-adding
+            if to_remove:
+                typer.echo(f"Removing {len(to_remove)} subscription(s)...")
+            for key in to_remove:
+                rx_device = find_device(devices, key[0])
                 if rx_device is None:
-                    typer.echo(f"Warning: RX device '{sub['rx_device_name']}' not found, skipping.", err=True)
+                    typer.echo(f"Warning: RX device '{key[0]}' not found, skipping removal.", err=True)
                     continue
-
-                tx_device = find_device(devices, sub["tx_device_name"])
-                if tx_device is None:
-                    typer.echo(f"Warning: TX device '{sub['tx_device_name']}' not found, skipping.", err=True)
-                    continue
-
-                rx_channel = find_channel(rx_device, sub["rx_channel_name"], "rx")
+                rx_channel = find_channel(rx_device, key[1], "rx")
                 if rx_channel is None:
-                    typer.echo(f"Warning: RX channel '{sub['rx_channel_name']}' not found on {rx_device.name}, skipping.", err=True)
+                    typer.echo(f"Warning: RX channel '{key[1]}' not found on {rx_device.name}, skipping removal.", err=True)
                     continue
+                try:
+                    packet, _ = commands.command_remove_subscription(rx_channel.number)
+                    arc_port = _get_arc_port(rx_device)
+                    await send(packet, rx_device.ipv4, arc_port)
+                    cur_tx = current.get(key)
+                    tx_label = f" <- {cur_tx[1]}@{cur_tx[0]}" if cur_tx else ""
+                    typer.echo(f"  REMOVE {key[1]}@{key[0]}{tx_label}")
+                except Exception as e:
+                    typer.echo(f"  FAILED removing {key[1]}@{key[0]}: {e}", err=True)
 
-                tx_channel = find_channel(tx_device, sub["tx_channel_name"], "tx")
+            # Add new subscriptions
+            if to_add:
+                typer.echo(f"Adding {len(to_add)} subscription(s)...")
+            for key in to_add:
+                tx = desired[key]
+                rx_device = find_device(devices, key[0])
+                if rx_device is None:
+                    typer.echo(f"Warning: RX device '{key[0]}' not found, skipping.", err=True)
+                    continue
+                tx_device = find_device(devices, tx[0])
+                if tx_device is None:
+                    typer.echo(f"Warning: TX device '{tx[0]}' not found, skipping.", err=True)
+                    continue
+                rx_channel = find_channel(rx_device, key[1], "rx")
+                if rx_channel is None:
+                    typer.echo(f"Warning: RX channel '{key[1]}' not found on {rx_device.name}, skipping.", err=True)
+                    continue
+                tx_channel = find_channel(tx_device, tx[1], "tx")
                 if tx_channel is None:
-                    typer.echo(f"Warning: TX channel '{sub['tx_channel_name']}' not found on {tx_device.name}, skipping.", err=True)
+                    typer.echo(f"Warning: TX channel '{tx[1]}' not found on {tx_device.name}, skipping.", err=True)
                     continue
-
                 try:
                     tx_channel_name = tx_channel.friendly_name or tx_channel.name
                     packet, _ = commands.command_add_subscription(
@@ -313,10 +373,13 @@ def fromxml(
                     )
                     arc_port = _get_arc_port(rx_device)
                     await send(packet, rx_device.ipv4, arc_port)
-                    typer.echo(f"{rx_channel.name}@{rx_device.name} <- {tx_channel.name}@{tx_device.name}")
+                    typer.echo(f"  ADD {rx_channel.name}@{rx_device.name} <- {tx_channel.name}@{tx_device.name}")
                 except Exception as e:
-                    typer.echo(f"FAILED {sub['rx_channel_name']}@{sub['rx_device_name']} <- {sub['tx_channel_name']}@{sub['tx_device_name']}: {e}", err=True)
+                    typer.echo(f"  FAILED {key[1]}@{key[0]} <- {tx[1]}@{tx[0]}: {e}", err=True)
 
-        typer.echo("Subscriptions applied.")
+            if not to_remove and not to_add:
+                typer.echo("All subscriptions already match, nothing to do.")
+
+            typer.echo("Subscriptions applied.")
 
     asyncio.run(_run())

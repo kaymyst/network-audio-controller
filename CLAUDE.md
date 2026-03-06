@@ -25,6 +25,9 @@ uv run ruff format .
 # Verbose/debug mode
 uv run netaudio -v
 
+# Apply subscriptions from Dante Controller XML preset
+uv run netaudio subscription fromxml --xmlfile path/to/preset.xml
+
 # Build windows package
 uv run pyinstaller --noconfirm --onedir --name netaudio packages/netaudio/src/netaudio/__main__.py
 ```

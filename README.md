@@ -73,6 +73,14 @@ uv run ruff check .
 uv run ruff format .
 ```
 
+#### Apply subscriptions from Dante Controller XML preset
+
+```bash
+uv run netaudio subscription fromxml --xmlfile path/to/preset.xml
+```
+
+This compares the XML against live subscriptions: matching subscriptions are left untouched (no audio cut), extra subscriptions are removed, and missing ones are added.
+
 ### Documentation
 
 - [Examples](https://github.com/chris-ritsen/network-audio-controller/wiki/Examples)
